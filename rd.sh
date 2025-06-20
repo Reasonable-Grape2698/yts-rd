@@ -124,7 +124,7 @@ while IFS= read -r line; do
                                         echo "API limited, sleeping 60s"
                     sleep 60
                 else
-                    $line > failed.txt
+                    echo "$line failed, response: $response" > failed.txt
                 fi
         else
                 (($count++))
