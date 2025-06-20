@@ -111,6 +111,9 @@ echo "Found $(cat $ytsfile | wc -l) yts hashes"
 echo "Found $(grep -i -v -F -x -f $rdfile $ytsfile | wc -l) unadded torrents"
 grep -i -v -F -x -f $rdfile $ytsfile > unique.txt
 
+count=0
+totalcount=$(cat unique.txt | wc -l)
+
 while IFS= read -r line; do
     response=$(curl -s -X POST -H "$headers" -H "application/x-www-form-urlencoded" --data-raw "magnet=magnet:?xt=urn:btih:$line" $baseurl/addMagnet)
     torrentId=$(echo $response | jq .id)
@@ -125,7 +128,9 @@ while IFS= read -r line; do
                     $line > failed.txt
                 fi
         else
-                echo "$torrentId added"
+                (($count++))
+                show_progress $count $totalcount
         fi
         sleep 1
+
 done < unique.txt
