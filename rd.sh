@@ -125,7 +125,6 @@ while IFS= read -r line; do
                     $line > failed.txt
                 fi
         else
-                echo $torrentId >> $dir/torrentIds.txt
                 echo "$torrentId added"
         fi
         sleep 1
