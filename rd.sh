@@ -105,7 +105,7 @@ else
         done
         wait
 fi
-
+sed -i 's/.*/\L&/' $ytsfile
 echo "Found $(cat $ytsfile | wc -l) yts hashes"
 echo "Found $(grep -i -v -F -x -f $rdfile $ytsfile | wc -l) unadded torrents"
 grep -i -v -F -x -f $rdfile $ytsfile > unique.txt
