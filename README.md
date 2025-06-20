@@ -15,3 +15,6 @@ curl https://raw.githubusercontent.com/Reasonable-Grape2698/yts-rd/refs/heads/ma
 | -r       | RealDebrid hash file (If already available)   |
 | -y       | YTS hash file (If already available)          |
 | -l       | Language (defaults to en)                     |
+
+
+Hell no I'm not maintaining this
