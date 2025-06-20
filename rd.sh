@@ -88,7 +88,6 @@ echo "Found $(printf '%s\n' "${rdhashes[@]}" | wc -l) hashes"
 
 
 if [ -f "$ytsfile" ]; then
-  echo "test"
   mapfile -t ytshashes < $ytsfile
 else
         ytsfile="yts.txt"
